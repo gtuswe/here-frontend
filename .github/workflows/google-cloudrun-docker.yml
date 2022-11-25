@@ -6,7 +6,7 @@ on:
 
 env:
   PROJECT_ID: here-quick-attendance
-  GAR_LOCATION: us-central1 
+  GAR_LOCATION: us-central1
   SERVICE: here-web
   REGION: us-central1
 
@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Google Auth
         id: auth
