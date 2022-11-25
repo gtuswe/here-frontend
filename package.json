@@ -1,0 +1,17 @@
+{
+  "name": "here",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "cd client && npm install && cd .. && cd server && npm install && cd ..",
+    "dev": "concurrently \"cd client && npm run dev\" \"cd server && npm start\"",
+    "build": "cd client && npm run build && cd .. && cp -r client/build server/public",
+    "start": "npm run build && cd server && npm start"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^7.6.0"
+  }
+}
