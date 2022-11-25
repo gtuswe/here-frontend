@@ -16,7 +16,7 @@ app.use(express.json());
 
 
 // Serve static files from the React app in root directory
-app.use(express.static(path.join(__dirname, 'client/build')));
+app.use(express.static(path.join(__dirname, './public')));
 
 
 // Put all API endpoints under '/api'
