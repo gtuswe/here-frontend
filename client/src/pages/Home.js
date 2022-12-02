@@ -18,16 +18,16 @@ function Description() {
         <div>
             <h1>Enjoy to Tracking your</h1>
             <h1>Attendances</h1>
-            <p>Take your participants attendance in the twinkle of an eye, faster than your shadow</p>
+            <p className={styles["description"]}>Take your participants attendance in the twinkle of an eye, faster than your shadow</p>
         </div>
     );
 }
 
 function SignUpButton() {
     return (
-        <div>
+        <div >
         <Link to="/register">
-        <button className={styles["register-button"]}>Register</button>
+        <button className={styles["register"]}>Register</button>
         </Link>
         </div>
     );
@@ -37,7 +37,7 @@ function LoginButton() {
     return (
         <div>
         <Link to="/login"> 
-        <button className={styles["login-button"]}>Login</button>
+        <button className={styles["login"]}>Log in</button>
         </Link>
         </div>
     );
