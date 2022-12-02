@@ -13,7 +13,7 @@ import NotFound from './pages/NotFound';
 const Router = () => {
     return (
         <Routes>
-            <Route exact path="/" element={<SecureRoute component={Home} />} />
+            <Route exact path="/" element={<Home />} />
             <Route exact path="/profile" element={<SecureRoute component={Profile} />} />
             <Route exact path="/login" element={<Login />} />
             <Route exact path="/register" element={<Register />} />
