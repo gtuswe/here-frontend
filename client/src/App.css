@@ -2,3 +2,14 @@
     background-color: #EDEEF6;
     height: 100vh;
 }
+
+/* load font from ./fonts folter */
+@font-face {
+    font-family: 'Roboto';
+    src: url('./fonts/roboto.ttf') format('truetype');
+}
+
+/* use roboto font */
+body{
+    font-family: 'Roboto';
+}
