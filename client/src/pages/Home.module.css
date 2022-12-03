@@ -1,31 +1,48 @@
 .home{
     text-align: center;
+    
 }
 
 .login{
+    margin-top: 30px;
     width: 300px;
     height: 50px;
     border-radius: 60px;
     border: none;
-    background-color: beige;
     color: #6750A4;
-    font-size: 25px;
+    background-color: #EDEEF6;
+    font-size: 20px;
 }
 
 .register{
+    margin-top: 50px;
     width: 300px;
     height: 50px;
     border-radius: 60px;
     border: none;
     background-color: #6750A4;
     color: white;
-    font-size: 25px;
+    font-size: 20px;
     margin-bottom: 20px;
     
 }
 
 .description{
+    color: #213445;
+    font-size: 61px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.sub-description{
+    color: #213445;
+    font-size: 61px;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+.parap{
     color: #797979;
+    font-size:22px ;
 }
 
 .register-button{
@@ -38,8 +55,9 @@
 .header{
     display: inline-block;
     font-size: 500%;
+    color: #326CE9;
 }
 
 .logo{
-    width: 6%;
+    width: 5%;
 }

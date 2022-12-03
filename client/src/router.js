@@ -8,7 +8,7 @@ import Register from './pages/Register';
 import ForgotPassword from './pages/ForgotPassword';
 import VerifyEmail from './pages/VerifyEmail';
 import NotFound from './pages/NotFound';
-
+import QR from './pages/QR';
 
 const Router = () => {
     return (
@@ -19,6 +19,7 @@ const Router = () => {
             <Route exact path="/register" element={<Register />} />
             <Route exact path="/forgot-password" element={<ForgotPassword />} />
             <Route exact path="/verify-email" element={<VerifyEmail />} />
+            <Route exact path="/scan-qr" element={<QR />} />
             <Route path="*" element={<SecureRoute component={NotFound} />} />
         </Routes>
     );

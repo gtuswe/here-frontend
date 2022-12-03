@@ -15,10 +15,10 @@ function LogoHeader() {
 
 function Description() {
     return (
-        <div>
-            <h1>Enjoy to Tracking your</h1>
-            <h1>Attendances</h1>
-            <p className={styles["description"]}>Take your participants attendance in the twinkle of an eye, faster than your shadow</p>
+        <div >
+            <h1 className={styles["description"]}>Enjoy to Tracking your</h1>
+            <h1 className={styles["sub-description"]}>Attendances</h1>
+            <p className={styles["parap"]}>Take your participants attendance in the twinkle of an eye, faster than your shadow</p>
         </div>
     );
 }
@@ -27,7 +27,7 @@ function SignUpButton() {
     return (
         <div >
         <Link to="/register">
-        <button className={styles["register"]}>Register</button>
+        <button className={styles["register"]}>Sign Up</button>
         </Link>
         </div>
     );

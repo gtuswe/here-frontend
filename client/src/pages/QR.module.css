@@ -1,0 +1,23 @@
+.main {
+  display: flex;
+  flex-direction: row;
+}
+
+.qr-part {
+  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.qr-image{
+    width: 80%;
+    height: 80%;
+}
+
+.attendances{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
