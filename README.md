@@ -1,3 +1,3 @@
 # here-frontend
 
-# https://herequickattendance.me
+# https://hereattendance.tech
