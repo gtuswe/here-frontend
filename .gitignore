@@ -3,7 +3,6 @@ client/node_modules
 client/build
 server/node_modules
 node_modules
-package-lock.json
 yarn.lock
 server/public
 
