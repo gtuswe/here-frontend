@@ -1,0 +1,100 @@
+.app {
+    font-family: sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    height: 80vh;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+    background-color: #EDEEF6;
+  }
+  
+  input[type="text"],
+  input[type="password"] {
+    height: 40px;
+  
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+  }
+  
+  input[type="submit"]{
+      margin-top: 30px;
+      width: 200px;
+      height: 50px;
+      border-radius: 60px;
+      border: none;
+      color: white;
+      background-color: #6750A4;
+      font-size: 20px;
+  }
+  
+  input[type="submit"]:hover {
+    background: #40306b;
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .login-form {
+    background-color: #EDEEF6;
+    padding: 2rem;
+    width: 350px;
+    height: 350px;
+  }
+  
+  .list-container {
+    display: flex;
+  }
+  
+  .error {
+    color: red;
+    font-size: 12px;
+  }
+  
+  .title {
+    font-size: 16px;
+    margin-top: 20px;
+    margin-left: 70px;
+  }
+  
+  .input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 10px;
+    
+  }
+  
+  
+  .start-title {
+    font-size: 64px;
+    font-weight: 600;
+  }
+  
+  .create-title {
+      font-size: 38px;
+      color: #888888;
+    }
+  
+    .signup-title {
+      margin-left: 20px;
+      color: #7879F1;
+      text-decoration: none;
+  
+    }
+  
+
+    .name{
+        width: 155px;
+    }
+
+    .surname{
+        width: 155px;
+    }
+
+    .form{
+        width: 330px;
+    }
