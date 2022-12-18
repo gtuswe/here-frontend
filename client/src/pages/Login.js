@@ -1,57 +1,47 @@
+import React, { useState } from "react";
 import "./Login.css";
 
-function Header() {
-  return (
-    <div className="header-css">
-      <h1>Welcome Back!</h1>
-      <h2>Sign In to your account</h2>
-    </div>
-  );
-}
+function Login() {
+  // React States
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
-function EmailButton() {
-  return (
-    <div>
-      <input type="email" placeholder="Email" />
-    </div>
-  );
-}
+  const handleSubmit = (event) => {
+    //Prevent page reload
+    event.preventDefault();
 
-function PasswordButton() {
-  return (
-    <div>
-      <input type="password" placeholder="Password" />
-    </div>
-  );
-}
+  };
 
-function SubmitButton() {
-  return (
-      <div className="submit-button">
-        <input className="submit" type="submit" value="Login" />
-      </div>
-  );
-}
 
-function LoginForm() {
-  return (
-    <div className="login-form-container">
-      <form className="login-form">
-        <div className="login-content">
-        <EmailButton />
-        <PasswordButton />
-        <SubmitButton />
+  // JSX code for login form
+  const renderForm = (
+    <div className="form">
+      <form onSubmit={handleSubmit}>
+        <div className="input-container">
+          <label>Email Address </label>
+          <input type="text" name="email" required />
         </div>
+
+        <div className="input-container">
+          <label>Password </label>
+          <input type="password" name="pass" required />
+        </div>
+
+        <div className="button-container">
+          <input type="submit"/>
+        </div>
+      
       </form>
     </div>
   );
-}
 
-function Login() {
   return (
-    <div className="main">
-      <Header />
-      <LoginForm />
+    <div className="app">
+      <h1 className="welcome-title">Welcome Back 👋</h1>
+      <h2 className="signin-title">Sign In to your account</h2>
+      <div className="login-form">
+        {isSubmitted ? <div>User is successfully logged in</div> : renderForm}
+        <div className="title">Dont have an account? <a className="signup-title" href="/register"> Sign Up</a> </div>
+      </div>
     </div>
   );
 }

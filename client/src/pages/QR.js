@@ -1,12 +1,12 @@
-import QRCode from "../images/qr.png";
 import Image from "react-bootstrap/Image";
 import styles from "./QR.module.css";
+import QRCode from "react-qr-code";
 
 function DisplayQR() {
   return (
     <div className={styles["qr-part"]}>
       <h1 className={styles["qr-header"]}>SCAN QR to say HERE!</h1>
-      <Image src={QRCode} alt="QR Code" className={styles["qr-image"]} />
+      <QRCode value="A3D98QDFG398654H" />
     </div>
   );
 }
