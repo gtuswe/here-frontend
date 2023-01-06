@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Login.css";
+import { Link } from "react-router-dom";
 
 function Login() {
   // React States
@@ -8,9 +9,7 @@ function Login() {
   const handleSubmit = (event) => {
     //Prevent page reload
     event.preventDefault();
-
   };
-
 
   // JSX code for login form
   const renderForm = (
@@ -27,9 +26,8 @@ function Login() {
         </div>
 
         <div className="button-container">
-          <input type="submit"/>
+          <input type="submit" />
         </div>
-      
       </form>
     </div>
   );
@@ -40,7 +38,12 @@ function Login() {
       <h2 className="signin-title">Sign In to your account</h2>
       <div className="login-form">
         {isSubmitted ? <div>User is successfully logged in</div> : renderForm}
-        <div className="title">Dont have an account? <a className="signup-title" href="/register"> Sign Up</a> </div>
+        <div className="title">
+          Dont have an account?
+          <Link className="signup-title" to="/register">
+            Sign Up
+          </Link>
+        </div>
       </div>
     </div>
   );

@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import "./Register.css";
+import { Link } from 'react-router-dom'
 
 function Register() {
   // React States
+
+
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleSubmit = (event) => {
@@ -43,11 +46,8 @@ function Register() {
       <div>
         {isSubmitted ? <div>User is successfully logged in</div> : renderForm}
         <div className="title">
-          Dont have an account?{" "}
-          <a className="signup-title" href="/register">
-            {" "}
-            Sign Up
-          </a>{" "}
+          Have an account?{" "}
+            <Link to="/login">Log in</Link>
         </div>
       </div>
     </div>
