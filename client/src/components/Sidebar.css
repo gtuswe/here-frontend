@@ -1,0 +1,21 @@
+.sidebar {
+    background-color: purple;
+    width: 20%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .sidebar-option {
+    padding: 15px;
+    text-align: center;
+  }
+  
+  .sidebar-option a {
+    color: white;
+    text-decoration: none;
+  }
+  
