@@ -5,10 +5,23 @@ import { Link } from "react-router-dom";
 function Login() {
   // React States
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleSubmit = (event) => {
     //Prevent page reload
     event.preventDefault();
+  };
+
+  const updateForm = (event) => {
+    const { name, value } = event.target;
+    if (name === "email") {
+      setEmail(value);
+      console.log(value)
+    } else if (name === "pass") {
+      setPassword(value);
+      console.log(value)
+    }
   };
 
   // JSX code for login form
@@ -17,7 +30,7 @@ function Login() {
       <form onSubmit={handleSubmit}>
         <div className="input-container">
           <label>Email Address </label>
-          <input type="text" name="email" required />
+          <input type="text" name="email" value={email} onChange={updateForm} required />
         </div>
 
         <div className="input-container">
