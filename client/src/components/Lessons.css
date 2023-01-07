@@ -2,9 +2,10 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  width: 80%;
+  width: 75%;
   margin: 0 auto;
-  margin-left: 20%; /* add this */
+  margin-left: 20%;
+  margin-top: 5%;
 }
 
 .grid-item {
