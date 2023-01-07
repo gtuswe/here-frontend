@@ -1,16 +1,28 @@
 import React, { useState } from "react";
 import "./Login.css";
 import { Link } from "react-router-dom";
+import { loginAPI } from "./LoginAPI";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
   // React States
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = (event) => {
-    //Prevent page reload
     event.preventDefault();
+
+    console.log("TRYING TO LOGIN")
+    loginAPI({ email, password })
+    .then((data) => {
+      if (data.status === 200) {
+        console.log(data);
+        navigate("/dashboard");
+      }
+    })
+    .catch((err) => console.log("Error occurred"));
   };
 
   const updateForm = (event) => {
@@ -35,7 +47,7 @@ function Login() {
 
         <div className="input-container">
           <label>Password </label>
-          <input type="password" name="pass" required />
+          <input type="password" name="pass" value={password} onChange={updateForm} required />
         </div>
 
         <div className="button-container">
