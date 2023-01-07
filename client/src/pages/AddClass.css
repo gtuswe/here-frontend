@@ -1,0 +1,30 @@
+.day-container {
+    display: flex;
+    background-color: rgb(138, 59, 138);
+  }
+  
+  .day-radio {
+    appearance: none;
+    width: 20px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid white;
+    margin-right: 10px;
+    outline: none;
+    transition: all 0.2s;
+    
+  }
+
+  .day-radio:checked {
+    background-color: white;
+  }
+  
+  .day-radio:focus {
+    border-color: yellow;
+  }
+  
+  .day-radio + label {
+    color: white;
+    font-size: 16px;
+  }
+  
