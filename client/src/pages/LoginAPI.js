@@ -16,20 +16,20 @@ export async function loginAPI(data) {
     }
   );
 
-  const config = {
-    Authorization: `Bearer ${response.data.accessToken}`,
-  };
+  // const config = {
+  //   Authorization: `Bearer ${response.data.accessToken}`,
+  // };
 
-  const other = await axios.get(
-    "https://herequickattendance.me/api/course",
-    {},
-    config
-  ).then((res) => {
-    console.log(res);
-  });
+  // const other = await axios.get(
+  //   "https://herequickattendance.me/api/course",
+  //   {},
+  //   config
+  // ).then((res) => {
+  //   console.log(res);
+  // });
 
-  const courses = getCoursesForInstructor(other.data, response.data.id);
-  console.log(courses);
+  // const courses = getCoursesForInstructor(other.data, response.data.id);
+  // console.log(courses);
 
   return response;
 }
