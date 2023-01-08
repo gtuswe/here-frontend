@@ -3,6 +3,9 @@ import "./Login.css";
 import { Link } from "react-router-dom";
 import { loginAPI } from "./LoginAPI";
 import { useNavigate } from "react-router-dom";
+import Cookies from 'universal-cookie';
+ 
+const cookies = new Cookies();
 
 function Login() {
   // React States
@@ -14,32 +17,26 @@ function Login() {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    console.log("TRYING TO LOGIN")
+    console.log("TRYING TO LOGIN");
     loginAPI({ email, password })
-    .then((data) => {
-      if (data.status === 200) {
-        console.log(data);
-
-        // set the token in local storage
-        localStorage.setItem("token", data.data.token); 
-        
-        // how to get the token from local storage
-        // const token = localStorage.getItem("token");
-
-        navigate("/dashboard");
-      }
-    })
-    .catch((err) => console.log("Error occurred"));
+      .then((data) => {
+        if (data.status === 200) {
+          const token = data.data.accessToken;
+          cookies.set("token", token);
+          navigate("/dashboard");
+        }
+      })
+      .catch((err) => console.log("Error occurred"));
   };
 
   const updateForm = (event) => {
     const { name, value } = event.target;
     if (name === "email") {
       setEmail(value);
-      console.log(value)
+      console.log(value);
     } else if (name === "pass") {
       setPassword(value);
-      console.log(value)
+      console.log(value);
     }
   };
 
@@ -49,12 +46,24 @@ function Login() {
       <form onSubmit={handleSubmit}>
         <div className="input-container">
           <label>Email Address </label>
-          <input type="text" name="email" value={email} onChange={updateForm} required />
+          <input
+            type="text"
+            name="email"
+            value={email}
+            onChange={updateForm}
+            required
+          />
         </div>
 
         <div className="input-container">
           <label>Password </label>
-          <input type="password" name="pass" value={password} onChange={updateForm} required />
+          <input
+            type="password"
+            name="pass"
+            value={password}
+            onChange={updateForm}
+            required
+          />
         </div>
 
         <div className="button-container">
