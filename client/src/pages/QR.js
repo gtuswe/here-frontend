@@ -1,6 +1,7 @@
 import Image from "react-bootstrap/Image";
 import styles from "./QR.module.css";
 import QRCode from "react-qr-code";
+import { useEffect } from "react";
 
 function DisplayQR() {
   let dataJson = {
@@ -51,6 +52,11 @@ function Attendances() {
 }
 
 const QR = () => {
+
+  useEffect(() => {
+
+    }, []);
+  
   return (
     <div className={styles["main"]}>
       <DisplayQR />

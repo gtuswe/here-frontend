@@ -1,9 +1,11 @@
 import axios from "axios";
+import Cookies from "universal-cookie";
 
 export async function addClassAPI(data) {
-  console.log(data);
-  let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwicm9sZSI6Imluc3RydWN0b3IiLCJpYXQiOjE2NzMyMTI4MjAsImV4cCI6MTY3MzIxNjQyMH0.B1SQR3h8Y8ibCPrf2jYItu0N3mL5uGnKljEBYJREvFk"
-  console.log(token);
+  const cookies = new Cookies();
+
+  const token = cookies.get("token");
+  console.log(token);  console.log(token);
 
   const config = {
     headers: {
