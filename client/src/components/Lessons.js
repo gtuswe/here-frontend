@@ -67,6 +67,7 @@ function Lessons() {
           return {
             name: course.name,
             image: lessonImage,
+            id: course.id,
           };
         });
         setCourseMap(courseMap)
@@ -79,7 +80,14 @@ function Lessons() {
   return (
     <div className="grid-list">
       {courseMap.map((item) => (
-        <div className="grid-item" key={item.name} onClick={() => {
+        <div className="grid-item" key={item.name} onClick={(event) => {
+          cookies.set("course_id", item.id);
+          // get current time 
+          const date = new Date();
+          // get full date and time
+          const fullDate = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + " " + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+          cookies.set("date", fullDate);
+
           navigate("/scan-qr")
         }}>
           <img src={item.image} alt={item.name} />

@@ -2,17 +2,24 @@ import Image from "react-bootstrap/Image";
 import styles from "./QR.module.css";
 import QRCode from "react-qr-code";
 import { useEffect } from "react";
+import { QRAPI } from "./QRAPI";
+import Cookies from "universal-cookie";
 
 function DisplayQR() {
+  const cookies = new Cookies();
+
+  const id = cookies.get("course_id");
+  const date = cookies.get("date");
+
   let dataJson = {
-    course_id : 2,
-    created_at: "2021-01-01 12:00:00",
+    course_id: id,
+    created_at: date,
   };
   let data = JSON.stringify(dataJson);
   return (
     <div className={styles["qr-part"]}>
       <h1 className={styles["qr-header"]}>SCAN QR to say HERE!</h1>
-      <QRCode value={data}/>
+      <QRCode value={data} />
     </div>
   );
 }
@@ -45,22 +52,27 @@ function Table() {
 function Attendances() {
   return (
     <div className={styles["attendances"]}>
-      <Header/>
-      <Table/>
+      <Header />
+      <Table />
     </div>
   );
 }
 
 const QR = () => {
-
   useEffect(() => {
+    QRAPI()
+      .then((data) => {
+        if (data.status === 200) {
+          console.log(data.data);
+        }
+      })
+      .catch((err) => console.log("Error occurred"));
+  }, []);
 
-    }, []);
-  
   return (
     <div className={styles["main"]}>
       <DisplayQR />
-      <Attendances/>
+      <Attendances />
     </div>
   );
 };
