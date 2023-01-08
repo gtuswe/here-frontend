@@ -19,6 +19,13 @@ function Login() {
     .then((data) => {
       if (data.status === 200) {
         console.log(data);
+
+        // set the token in local storage
+        localStorage.setItem("token", data.data.token); 
+
+        // how to get the token from local storage
+        // const token = localStorage.getItem("token");
+
         navigate("/dashboard");
       }
     })

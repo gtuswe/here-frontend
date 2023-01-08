@@ -1,6 +1,7 @@
 import React from "react";
 import "./Lessons.css";
 import { Link } from "react-router-dom";
+import { getLessons } from "./LessonsAPI";
 
 const items = [
   {
@@ -36,12 +37,19 @@ function onClick() {
 }
 
 function Lessons() {
+  
+  getLessons()
+    .then((data) => {
+      if (data.status === 200) {
+        console.log(data);
+      }
+    })
+    .catch((err) => console.log("Error occurred"));
+
   return (
     <div className="grid-list">
       {items.map((item) => (
-        <div className="grid-item" key={item.name} onClick={() => {
-          
-        }}>
+        <div className="grid-item" key={item.name} onClick={() => {}}>
           <img src={item.image} alt={item.name} />
           <div className="item-name">{item.name}</div>
         </div>
