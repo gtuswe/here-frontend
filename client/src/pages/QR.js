@@ -3,10 +3,15 @@ import styles from "./QR.module.css";
 import QRCode from "react-qr-code";
 
 function DisplayQR() {
+  let dataJson = {
+    course_id : 2,
+    created_at: "2021-01-01 12:00:00",
+  };
+  let data = JSON.stringify(dataJson);
   return (
     <div className={styles["qr-part"]}>
       <h1 className={styles["qr-header"]}>SCAN QR to say HERE!</h1>
-      <QRCode value="A3D98QDFG398654H" />
+      <QRCode value={data}/>
     </div>
   );
 }
