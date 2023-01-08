@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import './AddClass.css';
 import { addClassAPI } from "./AddClassAPI";
+import { useNavigate } from "react-router-dom";
 
 function AddClassPage() {
   const [name, setName] = useState('');
@@ -11,6 +12,7 @@ function AddClassPage() {
   const [code, setCode] = useState('');
   const [description, setDescription] = useState('');
   const [response, setResponse] = useState(null);
+  const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -24,13 +26,17 @@ function AddClassPage() {
       description: description,
     };
 
-    try {
-      const response = await addClassAPI(data);
-      setResponse(response);
-    } catch (error) {
-      console.error(error);
-    }
-  };
+
+      addClassAPI(data).then((data) => {
+        if (data.status === 200) {
+          console.log(data);
+
+          navigate("/dashboard");
+        }
+      })
+      .catch((err) => console.log("Error occurred"));
+    };
+  
 
   return (
     <div className="containerr">
