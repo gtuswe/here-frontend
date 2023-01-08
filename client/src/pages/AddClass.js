@@ -1,176 +1,65 @@
-import React, { useState } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "./AddClass.css";
+import React, { useState } from 'react';
+import axios from 'axios';
+import './AddClass.css';
+import { addClassAPI } from "./AddClassAPI";
 
-function AddClass() {
-  const [lessonName, setLessonName] = useState("");
-  const [description, setDescription] = useState("");
-  const [day, setDay] = useState("");
-  const [startTime, setStartTime] = useState({ hour: "", minute: "" });
-  const [endTime, setEndTime] = useState({ hour: "", minute: "" });
+function AddClassPage() {
+  const [name, setName] = useState('');
+  const [startDate, setStartDate] = useState('');
+  const [endDate, setEndDate] = useState('');
+  const [minAttendancePercentage, setMinAttendancePercentage] = useState('');
+  const [code, setCode] = useState('');
+  const [description, setDescription] = useState('');
+  const [response, setResponse] = useState(null);
 
-  function handleCreate() {
-    // Add code to create the lesson here
-  }
+  const handleSubmit = async (event) => {
+    event.preventDefault();
 
-  function handleCancel() {
-    // Add code to cancel the creation of the lesson here
-  }
+    const data = {
+      name : name,
+      start_date: startDate,
+      end_date: endDate,
+      min_attendance_percentage: minAttendancePercentage,
+      code : code,
+      description: description,
+    };
+
+    try {
+      const response = await addClassAPI(data);
+      setResponse(response);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
-    <div className="container mt-5">
-      <h1>Create New Lesson</h1>
-      <form>
-        <div className="form-group">
-          <label>Lesson Name:</label>
-          <input
-            className="form-control"
-            value={lessonName}
-            onChange={(e) => setLessonName(e.target.value)}
-          />
-        </div>
-        <div className="form-group">
-          <label>Description:</label>
-          <br />
-          <textarea
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-          />
-        </div>
-        <div className="form-group">
-          <label>Day:</label>
-          <br />
-          <div className="day-container">
-            <label>
-              <input
-                type="radio"
-                name="day"
-                value="Monday"
-                checked={day === "Monday"}
-                onChange={(e) => setDay(e.target.value)}
-                inline
-                className="day-radio"
-              />
-              Monday
-            </label>
-            <label>
-              <input
-                type="radio"
-                name="day"
-                value="Tuesday"
-                checked={day === "Tuesday"}
-                onChange={(e) => setDay(e.target.value)}
-                inline
-                className="day-radio"
-              />
-              Tuesday
-            </label>
-            <label>
-              <input
-                type="radio"
-                name="day"
-                value="Wednesday"
-                checked={day === "Wednesday"}
-                onChange={(e) => setDay(e.target.value)}
-                inline
-                className="day-radio"
-              />
-              Wednesday
-            </label>
-            <label>
-              <input
-                type="radio"
-                name="day"
-                value="Thursday"
-                checked={day === "Thursday"}
-                onChange={(e) => setDay(e.target.value)}
-                inline
-                className="day-radio"
-              />
-              Thursday
-            </label>
-            <label>
-              <input
-                type="radio"
-                name="day"
-                value="Friday"
-                checked={day === "Friday"}
-                onChange={(e) => setDay(e.target.value)}
-                inline
-                className="day-radio"
-              />
-              Friday
-            </label>
-            <label>
-              <input
-                type="radio"
-                name="day"
-                value="Saturday"
-                checked={day === "Saturday"}
-                onChange={(e) => setDay(e.target.value)}
-                inline
-                className="day-radio"
-              />
-              Saturday
-            </label>
-          </div>
-        </div>
-        <div className="form-group">
-          <label>Time:</label>
-          <input
-            type="number"
-            value={startTime.hour}
-            onChange={(e) =>
-              setStartTime({ ...startTime, hour: e.target.value })
-            }
-            placeholder="Hour"
-            min="0"
-            max="23"
-          />
-          <input
-            type="number"
-            value={startTime.minute}
-            onChange={(e) =>
-              setStartTime({ ...startTime, minute: e.target.value })
-            }
-            placeholder="Minute"
-            min="0"
-            max="59"
-          />
-        </div>
-        <br />
-        <label>End Time:</label>
-        <div className="time-container">
-          <input
-            type="number"
-            value={endTime.hour}
-            onChange={(e) => setEndTime({ ...endTime, hour: e.target.value })}
-            placeholder="Hour"
-            min="0"
-            max="23"
-          />
-          <input
-            type="number"
-            value={endTime.minute}
-            onChange={(e) => setEndTime({ ...endTime, minute: e.target.value })}
-            placeholder="Minute"
-            min="0"
-            max="59"
-          />
-        </div>
-        <button
-          class
-          type="submit"
-          className="btn btn-primary"
-          onClick={handleCreate}
-        >
-          Create
-        </button>
-        <button className="btn btn-secondary ml-2" onClick={handleCancel}>
-          Cancel
-        </button>
+    <div className="containerr">
+      <form className="formm" onSubmit={handleSubmit}>
+        <label htmlFor="name">Name:</label>
+        <input type="text" id="name" value={name} onChange={(event) => setName(event.target.value)} />
+
+        <label htmlFor="startDate">Start Date:</label>
+        <input type="date" id="startDate" value={startDate} onChange={(event) => setStartDate(event.target.value)} />
+
+        <label htmlFor="endDate">End Date:</label>
+        <input type="date" id="endDate" value={endDate} onChange={(event) => setEndDate(event.target.value)} />
+
+        <label htmlFor="minAttendancePercentage">Minimum Attendance Percentage:</label>
+        <input type="number" id="minAttendancePercentage" value={minAttendancePercentage} onChange={(event) => setMinAttendancePercentage(event.target.value)} />
+
+        <label htmlFor="code">Lesson Code:</label>
+        <input type="text" id="code" value={code} onChange={(event) => setCode(event.target.value)} />
+
+        <label htmlFor="description">Description:</label>
+        <textarea id="description" value={description} onChange={(event) => setDescription(event.target.value)} />
+
+        <button type="submit">Submit</button>
+
+        {response && <p>Successfully added class!</p>}
       </form>
     </div>
   );
 }
 
-export default AddClass;
+
+export default AddClassPage

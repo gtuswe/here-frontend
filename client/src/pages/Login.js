@@ -22,7 +22,7 @@ function Login() {
 
         // set the token in local storage
         localStorage.setItem("token", data.data.token); 
-
+        
         // how to get the token from local storage
         // const token = localStorage.getItem("token");
 
