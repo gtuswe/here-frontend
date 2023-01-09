@@ -108,8 +108,6 @@ async function getParticipants() {
   return response.data;
 }
 
-
-
 function GetResultButton() {
   const navigate = useNavigate();
 

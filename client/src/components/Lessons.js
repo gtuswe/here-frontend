@@ -5,9 +5,9 @@ import Cookies from "universal-cookie";
 import React, { useEffect, useState } from "react";
 import lessonImage from "../images/lesson.png";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 import { getInstructorId } from "./InstructorAPI";
-
 
 function getCoursesForInstructor(courses, instructorId) {
   return courses.filter(function (course) {
@@ -40,7 +40,7 @@ function Lessons() {
                   image: lessonImage,
                   id: course.id,
                   description: course.description,
-                  code : course.code
+                  code: course.code,
                 };
               });
               setCourseMap(courseMap);
@@ -54,34 +54,36 @@ function Lessons() {
   return (
     <div className="grid-list">
       {courseMap.map((item) => (
-        <div
-          className="grid-item"
-          key={item.name}
-          onClick={(event) => {
-            cookies.set("course_id", item.id);
-            // get current time
-            const date = new Date();
-            // get full date and time
-            const fullDate =
-              date.getFullYear() +
-              "-" +
-              (date.getMonth() + 1) +
-              "-" +
-              date.getDate() +
-              " " +
-              date.getHours() +
-              ":" +
-              date.getMinutes() +
-              ":" +
-              date.getSeconds();
-            cookies.set("date", fullDate);
-
-            navigate("/scan-qr");
-          }}
-        >
+        <div className="grid-item" key={item.name}>
           <img src={item.image} alt={item.name} />
           <div className="item-name">{item.name}</div>
           <div>{item.description}</div>
+          <button
+            onClick={(event) => {
+              cookies.set("course_id", item.id);
+              // get current time
+              const date = new Date();
+              // get full date and time
+              const fullDate =
+                date.getFullYear() +
+                "-" +
+                (date.getMonth() + 1) +
+                "-" +
+                date.getDate() +
+                " " +
+                date.getHours() +
+                ":" +
+                date.getMinutes() +
+                ":" +
+                date.getSeconds();
+              cookies.set("date", fullDate);
+
+              navigate("/scan-qr");
+            }}
+          >
+            Take Attendance
+          </button>
+      
         </div>
       ))}
     </div>

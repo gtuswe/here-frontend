@@ -5,12 +5,13 @@ export async function addClassAPI(data) {
   const cookies = new Cookies();
 
   const token = cookies.get("token");
-  console.log(token);  console.log(token);
+  console.log(token);
+  console.log(token);
 
   const config = {
     headers: {
-      Authorization: `Bearer ${token}`
-    }
+      Authorization: `Bearer ${token}`,
+    },
   };
 
   const response = await axios.post(
@@ -23,8 +24,10 @@ export async function addClassAPI(data) {
       code: data.code,
       description: data.description,
     },
-     config
+    config
   );
+
+ 
   console.log(response);
   return response;
 }
