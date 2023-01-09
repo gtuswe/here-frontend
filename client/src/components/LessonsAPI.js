@@ -11,7 +11,6 @@ export async function getLessons(token) {
     "https://herequickattendance.me/api/course",
     config
   );
-  
 
   return response;
 }

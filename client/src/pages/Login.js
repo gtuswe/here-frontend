@@ -23,10 +23,11 @@ function Login() {
         if (data.status === 200) {
           const token = data.data.accessToken;
           cookies.set("token", token);
+          
           navigate("/dashboard");
         }
       })
-      .catch((err) => console.log("Error occurred"));
+      .catch((err) => console.log(err));
   };
 
   const updateForm = (event) => {

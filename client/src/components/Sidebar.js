@@ -8,9 +8,7 @@ function Sidebar() {
       <div className="sidebar-option">
         <Link to="/new-class">Add New Class</Link>
       </div>
-      <div className="sidebar-option">
-        <a href="#">Profile</a>
-      </div>
+      
     </div>
   );
 }

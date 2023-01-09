@@ -11,11 +11,11 @@
 }
 
 
-.qr-qr{
-    width: 200%;
+
+.qr-image{
+    width: 80%;
+    height: 80%;
 }
-
-
 
 .attendances{
     display: flex;
@@ -23,3 +23,6 @@
     align-items: center;
 }
 
+.name{
+    margin-right : 5px;
+}
