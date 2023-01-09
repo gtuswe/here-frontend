@@ -8,38 +8,6 @@ import { useNavigate } from "react-router-dom";
 
 import { getInstructorId } from "./InstructorAPI";
 
-const items = [
-  {
-    name: "Item 1",
-    image: "https://picsum.photos/200/300",
-  },
-  {
-    name: "Item 2",
-    image: "https://picsum.photos/200/300",
-  },
-  {
-    name: "Item 3",
-    image: "https://picsum.photos/200/300",
-  },
-  {
-    name: "Item 4",
-    image: "https://picsum.photos/200/300",
-  },
-  {
-    name: "Item 5",
-    image: "https://picsum.photos/200/300",
-  },
-  {
-    name: "Item 6",
-    image: "https://picsum.photos/200/300",
-  },
-  // add more items here
-];
-
-function onClick() {
-  // route to /scan-qr
-  <Link to="/scan-qr">Scan QR</Link>;
-}
 
 function getCoursesForInstructor(courses, instructorId) {
   return courses.filter(function (course) {
