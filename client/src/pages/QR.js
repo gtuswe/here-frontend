@@ -19,7 +19,7 @@ function DisplayQR() {
   return (
     <div className={styles["qr-part"]}>
       <h1 className={styles["qr-header"]}>SCAN QR to say HERE!</h1>
-      <QRCode value={data} />
+      <QRCode className={styles["qr-qr"]} value={data} />
     </div>
   );
 }
