@@ -3,6 +3,7 @@ import axios from 'axios';
 import './AddClass.css';
 import { addClassAPI } from "./AddClassAPI";
 import { useNavigate } from "react-router-dom";
+import { addPeriodAPI } from './AddPeriodAPI';
 
 function AddClassPage() {
   const [name, setName] = useState('');
@@ -29,6 +30,7 @@ function AddClassPage() {
 
       addClassAPI(data).then((data) => {
         if (data.status === 200) {
+          addPeriodAPI(data)
           navigate("/dashboard");
         }
       })
