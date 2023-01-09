@@ -29,8 +29,6 @@ function AddClassPage() {
 
       addClassAPI(data).then((data) => {
         if (data.status === 200) {
-          console.log(data);
-
           navigate("/dashboard");
         }
       })
