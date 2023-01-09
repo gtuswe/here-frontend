@@ -39,6 +39,8 @@ function Lessons() {
                   name: course.name,
                   image: lessonImage,
                   id: course.id,
+                  description: course.description,
+                  code : course.code
                 };
               });
               setCourseMap(courseMap);
@@ -79,6 +81,7 @@ function Lessons() {
         >
           <img src={item.image} alt={item.name} />
           <div className="item-name">{item.name}</div>
+          <div>{item.description}</div>
         </div>
       ))}
     </div>

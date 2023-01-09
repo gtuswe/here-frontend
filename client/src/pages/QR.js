@@ -148,7 +148,7 @@ function GetResultButton() {
         navigate("/dashboard");
       }}
     >
-      <button className={styles["button"]}>Get Result</button>
+      <button className={styles["button"]}>Export As Excel</button>
     </div>
   );
 }
