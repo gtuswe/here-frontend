@@ -23,7 +23,7 @@ function Register() {
       .then((data) => {
         if (data.status === 200) {
           console.log(data);
-          navigate("/dashboard");
+          navigate("/login");
         }
       })
       .catch((err) => console.log("Error occurred"));
