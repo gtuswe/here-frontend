@@ -5,6 +5,8 @@ import { useEffect, useState } from "react";
 import { QRAPI } from "./QRAPI";
 import Cookies from "universal-cookie";
 import axios from "axios";
+import * as XLSX from "xlsx";
+import { useNavigate } from "react-router-dom";
 
 function DisplayQR() {
   const [time, setTime] = useState("");
@@ -106,9 +108,46 @@ async function getParticipants() {
   return response.data;
 }
 
+
+
 function GetResultButton() {
+  const navigate = useNavigate();
+
   return (
-    <div className={styles["button-container"]} onClick={getParticipants}>
+    <div
+      className={styles["button-container"]}
+      onClick={async () => {
+        const cookies = new Cookies();
+
+        const id = cookies.get("course_id");
+        const token = cookies.get("token");
+        const config = {
+          headers: { Authorization: `Bearer ${token}` },
+        };
+
+        let fullUrl =
+          "https://herequickattendance.me/api/course/" + id + "/list";
+        const response = await axios.get(fullUrl, config);
+
+        const data = response.data;
+
+        const studentData = data.map((student) => {
+          return {
+            name: student["Student"]["Person"].name,
+            surname: student["Student"]["Person"].surname,
+            mail: student["Student"]["Person"].mail,
+          };
+        });
+
+        const worksheet = XLSX.utils.json_to_sheet(studentData);
+        const workbook = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(workbook, worksheet, "Sheet1");
+        //let buffer = XLSX.write(workbook, { bookType: "xlsx", type: "buffer" });
+        //XLSX.write(workbook, { bookType: "xlsx", type: "binary" });
+        XLSX.writeFile(workbook, "DataSheet.xlsx");
+        navigate("/dashboard");
+      }}
+    >
       <button className={styles["button"]}>Get Result</button>
     </div>
   );
